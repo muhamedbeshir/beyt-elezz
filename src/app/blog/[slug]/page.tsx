@@ -59,16 +59,16 @@ export default async function BlogPost({ params }: Props) {
   };
 
   return (
-    <article className="container mx-auto px-4 py-16 md:py-24 max-w-4xl">
+    <article className="container mx-auto px-4 py-16 md:py-24 max-w-5xl">
       
-      <div className="mb-8 text-center max-w-4xl mx-auto">
+      <div className="mb-8 text-center max-w-5xl mx-auto">
          <Link href="/blog" className="text-[#D4AF37] hover:underline font-black mb-4 inline-block">← العودة للمدونة</Link>
          
-          <div suppressHydrationWarning className="relative w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-8 shadow-2xl">
+          <div suppressHydrationWarning className="relative w-full h-auto rounded-3xl overflow-hidden mb-8 shadow-2xl">
             <img 
               src={post.image} 
               alt={post.title}
-              className="w-full h-full object-cover"
+              className="w-full h-auto"
             />
           </div>
 
