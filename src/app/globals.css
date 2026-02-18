@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-cairo: var(--font-cairo);
+  
+  --color-primary: #D4AF37;   /* Gold */
+  --color-primary-hover: #AA8C2C;
+  --color-secondary: #1f70cc; /* Royal Blue */
+  --color-secondary-hover: #001A38;
+  --color-accent: #F3F4F6;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-cairo), sans-serif;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 90s linear infinite;
+}
+
+/* Pause on hover for accessibility */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
