@@ -41,7 +41,7 @@ export default async function BlogPost({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
-    "image": post.image ? `https://baytalezz-sa.com${post.image}` : "https://baytalezz-sa.com/logo.png",
+    "image": post.image ? `https://www.beit-elezz.com${post.image}` : "https://www.beit-elezz.com/logo.png",
     "author": {
       "@type": "Organization",
       "name": "بيت العز"
@@ -51,7 +51,7 @@ export default async function BlogPost({ params }: Props) {
       "name": "بيت العز",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://baytalezz-sa.com/logo.png"
+        "url": "https://www.beit-elezz.com/logo.png"
       }
     },
     "datePublished": post.date,

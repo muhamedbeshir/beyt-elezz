@@ -17,6 +17,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            poster="/images/produced/hero-moving.png"
             className="w-full h-full object-cover md:object-cover pointer-events-none opacity-60 md:opacity-100" 
             >
             <source src="/hero-video.mp4" type="video/mp4" />
@@ -24,6 +25,7 @@ export default function Hero() {
                 src="/images/produced/hero-moving.png" 
                 alt="بيت العز لنقل العفش" 
                 className="w-full h-full object-cover"
+                fetchPriority="high"
             />
             </video>
             

@@ -8,18 +8,18 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://baytalezz-sa.com'), // TODO: Update domain
+  metadataBase: new URL('https://www.beit-elezz.com'),
   title: {
-    default: "بيت العز لنقل العفش | 0540668896",
+    default: "شركة بيت العز لنقل العفش والأثاث بالرياض | 0540668896",
     template: "%s | بيت العز"
   },
-  description: "شركة بيت العز لنقل الأثاث والعفش بالرياض مع الفك والتركيب والتغليف. خصم 30% على جميع الخدمات. فريق محترف، ضمان شامل، ونقل آمن. نغطي كافة أحياء الرياض: الياسمين، الملقا، النرجس، حي الصحافة وغيرها.",
-  keywords: ["نقل عفش بالرياض", "نقل اثاث بالرياض", "افضل شركة نقل عفش بالرياض", "ارخص شركة نقل عفش بالرياض", "نقل عفش مع الفك والتركيب", "تخزين اثاث بالرياض", "بيت العز"],
+  description: "شركة بيت العز لنقل الأثاث والعفش بالرياض مع خدمات الفك والتركيب والتغليف الآمن. خصم 30% على جميع الخدمات. فريق عمل محترف، ضمان شامل، ونقل آمن داخل وخارج الرياض. نغطي كافة الأحياء.",
+  keywords: ["نقل عفش بالرياض", "نقل اثاث بالرياض", "شركة نقل عفش", "شركة نقل اثاث", "افضل شركة نقل عفش بالرياض", "ارخص شركة نقل عفش بالرياض", "نقل عفش مع الفك والتركيب", "تخزين اثاث بالرياض", "دينا نقل عفش", "بيت العز"],
   authors: [{ name: "بيت العز" }],
   creator: "بيت العز",
   publisher: "بيت العز",
   alternates: {
-    canonical: 'https://baytalezz-sa.com',
+    canonical: 'https://www.beit-elezz.com',
   },
   formatDetection: {
     email: false,
@@ -33,16 +33,16 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "بيت العز - أفضل خدمة نقل عفش بالرياض",
-    description: "نقل عفش آمن وسريع مع التغليف والفك والتركيب. اتصل بنا الآن 0540668896",
-    url: 'https://baytalezz-sa.com',
+    description: "شركة بيت العز لنقل الأثاث والعفش بالرياض مع خدمات الفك والتركيب والتغليف الآمن. خصم 30% على جميع الخدمات. فريق عمل محترف، ضمان شامل، ونقل آمن داخل وخارج الرياض. نغطي كافة الأحياء.",
+    url: 'https://www.beit-elezz.com',
     siteName: 'بيت العز',
     locale: 'ar_SA',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "بيت العز لنقل العفش",
-    description: "شركة بيت العز لنقل الأثاث والعفش بالرياض مع الفك والتركيب والتغليف. خصم 30% على جميع الخدمات. فريق محترف، ضمان شامل، ونقل آمن. نغطي كافة أحياء الرياض: الياسمين، الملقا، النرجس، حي الصحافة وغيرها.",
+    title: "شركة بيت العز لنقل العفش والأثاث بالرياض",
+    description: "شركة بيت العز لنقل الأثاث والعفش بالرياض مع خدمات الفك والتركيب والتغليف الآمن. خصم 30% على جميع الخدمات. فريق عمل محترف، ضمان شامل، ونقل آمن داخل وخارج الرياض. نغطي كافة الأحياء.",
   },
   robots: {
     index: true,
@@ -60,10 +60,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MovingCompany",
-  "name": "بيت العز لنقل العفش",
-  "image": "https://baytalezz-sa.com/logo.png",
+  "name": "شركة بيت العز لنقل العفش والأثاث",
+  "image": "https://www.beit-elezz.com/logo.png",
   "telephone": "0540668896",
-  "url": "https://baytalezz-sa.com",
+  "url": "https://www.beit-elezz.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "الرياض، المملكة العربية السعودية",

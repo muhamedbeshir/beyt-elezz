@@ -47,6 +47,25 @@ export default async function ServicePage({ params }: Props) {
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": service.title,
+    "provider": {
+      "@type": "MovingCompany",
+      "name": "بيت العز لنقل العفش",
+      "image": "https://www.beit-elezz.com/logo.png",
+      "url": "https://www.beit-elezz.com",
+      "telephone": "0540668896"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Riyadh"
+    },
+    "description": service.description,
+    "url": `https://www.beit-elezz.com/services/${service.slug}`
+  };
+
   return (
     <article className="container mx-auto px-4 py-16 md:py-24 max-w-4xl">
       
@@ -65,6 +84,11 @@ export default async function ServicePage({ params }: Props) {
           <div className="flex items-center justify-center gap-4 text-gray-500 text-sm">
              <span className="bg-[#D4AF37]/10 text-[#D4AF37] px-3 py-1 rounded-full font-black">خدماتنا</span>
           </div>
+
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
       </div>
 
       <div 
