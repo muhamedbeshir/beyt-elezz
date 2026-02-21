@@ -36,8 +36,29 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-12 bg-[#F8FAFC]">
+    <section id="services" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#D4AF37] font-black tracking-widest text-sm md:text-base uppercase"
+          >
+            ماذا نقدم
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl font-black text-[#002855] mt-4 leading-tight"
+          >
+            خدماتنا المتميزة
+          </motion.h2>
+        </div>
+
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8 max-w-7xl mx-auto">
         {services.map((service, index) => (
           <Link href={`/services/${service.slug}`} key={index} className="contents">

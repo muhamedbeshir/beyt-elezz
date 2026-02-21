@@ -27,7 +27,7 @@ const ProjectCard = ({ project, idx }: { project: Project; idx: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay: idx * 0.1 }}
-      className="group relative h-[450px] overflow-hidden rounded-[2.5rem] cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 will-change-transform"
+      className="group relative h-[250px] md:h-[450px] overflow-hidden rounded-2xl md:rounded-[2.5rem] cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 will-change-transform"
     >
       <Link href={`/portfolio/${project.id}`}>
         <div className="absolute inset-0">
@@ -54,14 +54,14 @@ const ProjectCard = ({ project, idx }: { project: Project; idx: number }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#1f70cc]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 p-8 text-white z-20 transition-transform duration-500">
-           <span className="inline-block px-3 py-1 bg-[#D4AF37] text-[#1f70cc] text-[10px] font-black tracking-widest uppercase rounded-full mb-3">
+        <div className="absolute inset-x-0 bottom-0 p-4 md:p-8 text-white z-20 transition-transform duration-500">
+           <span className="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-[#D4AF37] text-[#1f70cc] text-[8px] md:text-[10px] font-black tracking-widest uppercase rounded-full mb-2 md:mb-3">
              {project.category}
            </span>
-           <h4 className="font-black text-2xl mb-2 leading-tight">{project.title}</h4>
-           <div className="flex items-center gap-2 group-hover:gap-4 transition-all duration-300">
-             <span className="text-sm font-bold text-gray-200">عرض التفاصيل</span>
-             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-[#D4AF37]">
+           <h4 className="font-black text-sm md:text-2xl mb-1 md:mb-2 leading-tight">{project.title}</h4>
+           <div className="flex items-center gap-1 md:gap-2 group-hover:gap-4 transition-all duration-300">
+             <span className="text-[10px] md:text-sm font-bold text-gray-200">عرض التفاصيل</span>
+             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-[#D4AF37] md:w-5 md:h-5">
                <path d="M5 12h14M12 5l7 7-7 7"/>
              </svg>
            </div>
@@ -73,9 +73,30 @@ const ProjectCard = ({ project, idx }: { project: Project; idx: number }) => {
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-12 bg-[#f8fbff]">
+    <section id="portfolio" className="py-16 md:py-24 bg-[#f8fbff]">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#D4AF37] font-black tracking-widest text-sm md:text-base uppercase"
+          >
+            نفتخر بخدمتكم
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl font-black text-[#002855] mt-4 leading-tight"
+          >
+            سابقة أعمالنا
+          </motion.h2>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 md:gap-10">
           {portfolioProjects.map((project, idx) => (
              <ProjectCard key={project.id} project={project} idx={idx} />
           ))}

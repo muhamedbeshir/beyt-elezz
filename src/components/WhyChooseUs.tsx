@@ -40,9 +40,30 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-12 bg-[#1f70cc]/5">
+    <section id="about" className="py-16 md:py-24 bg-[#f8fbff]">
       <div className="container mx-auto px-4">
         
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#D4AF37] font-black tracking-widest text-sm md:text-base uppercase"
+          >
+            تعرف علينا
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl font-black text-[#002855] mt-4 leading-tight justify-center flex items-center"
+          >
+            لماذا تختار بيت العز؟
+          </motion.h2>
+        </div>
+
         {/* Content Section (Image + Features) */}
         <div className="flex flex-col md:flex-row items-center gap-12">
           
@@ -89,23 +110,46 @@ export default function WhyChooseUs() {
           </div>
         </div>
         
+        {/* Stats Section Title */}
+        <div className="mt-20 md:mt-32 text-center mb-10 md:mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#D4AF37] font-black tracking-widest text-sm uppercase"
+          >
+            ثقتكم هي نجاحنا
+          </motion.span>
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-2xl md:text-3xl font-black text-[#002855] mt-2"
+          >
+            إنجازاتنا بالأرقام
+          </motion.h3>
+        </div>
+
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-0 mt-16 md:mt-24 pt-10 md:pt-12 border-t border-gray-200">
-           {stats.map((stat, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + (idx * 0.1) }}
-                className={`text-center ${idx === 0 && 'col-span-1 lg:col-span-1'} ${idx === 1 && 'col-span-1 lg:col-span-1'} ${idx === 2 && 'col-span-2 lg:col-span-1'} md:border-l md:border-gray-200 rtl:md:border-r rtl:md:border-l-0 first:border-0`}
-              >
-                 <span className="block text-4xl md:text-6xl font-black text-[#1f70cc] mb-1 md:mb-2">
-                   <NumericText>{stat.val}</NumericText>
-                 </span>
-                 <span className="text-xs md:text-base text-gray-400 font-bold tracking-wider uppercase">{stat.label}</span>
-              </motion.div>
-           ))}
+        <div className="bg-white rounded-[3rem] p-8 md:p-16 shadow-[0_20px_50px_rgba(31,112,204,0.05)] border border-blue-50/50">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-0">
+             {stats.map((stat, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + (idx * 0.1) }}
+                  className={`text-center ${idx === 2 ? 'col-span-2 lg:col-span-1' : 'col-span-1'} md:border-l md:border-gray-100 rtl:md:border-r rtl:md:border-l-0 first:border-0`}
+                >
+                   <span className="block text-4xl md:text-7xl font-black text-[#1f70cc] mb-1 md:mb-3 tracking-tighter">
+                     <NumericText>{stat.val}</NumericText>
+                   </span>
+                   <span className="text-xs md:text-lg text-gray-500 font-black tracking-wide">{stat.label}</span>
+                </motion.div>
+             ))}
+          </div>
         </div>
       </div>
     </section>

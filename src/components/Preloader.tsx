@@ -7,16 +7,20 @@ export default function Preloader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if the page is already loaded (for cached visits)
-    if (document.readyState === 'complete') {
-        setTimeout(() => setLoading(false), 3000); 
-    } else {
-        const handleLoad = () => {
-            setTimeout(() => setLoading(false), 3000); 
-        };
-        window.addEventListener('load', handleLoad);
-        return () => window.removeEventListener('load', handleLoad);
+    // Check if preloader has already been shown in this session
+    const hasPreloaded = sessionStorage.getItem('hasPreloaded');
+    
+    if (hasPreloaded) {
+      setLoading(false);
+      return;
     }
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+      sessionStorage.setItem('hasPreloaded', 'true');
+    }, 800); // تقليل وقت الـ preloader
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -28,9 +32,9 @@ export default function Preloader() {
             opacity: 0,
             scale: 1.1,
             filter: "blur(10px)",
-            transition: { duration: 0.8, ease: "easeInOut" }
+            transition: { duration: 0.6, ease: "easeInOut" }
           }}
-          className="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center overflow-hidden pointer-events-none"
         >
           {/* Background decorative elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
@@ -57,6 +61,7 @@ export default function Preloader() {
                 fill 
                 className="object-contain"
                 priority
+                sizes="(max-width: 768px) 128px, 192px"
               />
             </motion.div>
 

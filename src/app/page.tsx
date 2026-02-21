@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import dynamic from 'next/dynamic';
+import Preloader from "@/components/Preloader";
 
 const Services = dynamic(() => import("@/components/Services"));
 const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
@@ -12,6 +13,7 @@ const Contact = dynamic(() => import("@/components/Contact"));
 export default function Home() {
   return (
     <main>
+      <Preloader />
       <Hero />
       <Services />
       <WhyChooseUs />

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,6 +11,28 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      setIsOpen(false);
+      const hash = href.split('#')[1];
+      if (pathname === '/') {
+        // Wait briefly for mobile menu animation to avoid layout shift calculation errors
+        setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        router.push(href);
+      }
+    } else {
+      setIsOpen(false);
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -18,13 +41,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
   const navLinks = [
     { name: 'الرئيسية', href: '/' },
-    { name: 'من نحن', href: '#about' },
-    { name: 'خدماتنا', href: '#services' },
-    { name: 'أعمالنا', href: '#portfolio' },
+    { name: 'من نحن', href: '/#about' },
+    { name: 'خدماتنا', href: '/#services' },
+    { name: 'أعمالنا', href: '/#portfolio' },
     { name: 'المدونة', href: '/blog' },
-    { name: 'اتصل بنا', href: '#contact' },
+    { name: 'اتصل بنا', href: '/#contact' },
   ];
 
   return (
@@ -61,6 +85,7 @@ export default function Header() {
             <Link 
               key={link.name} 
               href={link.href} 
+              onClick={(e) => handleNavClick(e, link.href)}
               className="relative py-1 hover:text-[#D4AF37] transition-all duration-300 group"
             >
               {link.name}
@@ -98,33 +123,24 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-lg"
+            className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 overflow-hidden shadow-lg"
           >
             <div className="flex flex-col p-4 gap-2">
               {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
-                  className="py-4 px-4 hover:bg-[#D4AF37]/10 rounded-xl text-[#002855] font-black text-lg transition-all duration-300 flex justify-between items-center group"
-                  onClick={(e) => {
-                    setIsOpen(false);
-                    if (link.href.startsWith('#')) {
-                      e.preventDefault();
-                      const element = document.querySelector(link.href);
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }
-                  }}
-                >
+                  <Link 
+                    key={link.name} 
+                    href={link.href} 
+                    className="py-4 px-4 hover:bg-[#D4AF37]/10 rounded-xl text-[#002855] font-black text-lg transition-all duration-300 flex justify-between items-center group"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                  >
                   {link.name}
                   <span className="text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity">←</span>
-                </a>
+                </Link>
               ))}
               <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-3">
-                  <NumericText className="w-full text-center bg-[#002855] text-white py-3 rounded-lg font-black shadow-md block">
-                   054 066 8896
-                 </NumericText>
+                  <a href="tel:0540668896" className="w-full text-center bg-[#002855] text-white py-3 rounded-lg font-black shadow-md block">
+                    <NumericText>054 066 8896</NumericText>
+                  </a>
               </div>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@ import { servicesData } from '@/lib/services-data';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 interface Props {
   params: Promise<{
@@ -72,11 +73,14 @@ export default async function ServicePage({ params }: Props) {
       <div className="mb-8 text-center max-w-4xl mx-auto">
          <Link href="/#services" className="text-[#D4AF37] hover:underline font-black mb-4 inline-block">← العودة للخدمات</Link>
          
-          <div className="relative w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-8 shadow-2xl">
-            <img 
+          <div suppressHydrationWarning className="relative w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-8 shadow-2xl">
+            <Image 
               src={service.image} 
               alt={service.title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
             />
           </div>
 

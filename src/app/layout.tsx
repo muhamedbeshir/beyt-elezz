@@ -106,7 +106,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileActionBar from "@/components/MobileActionBar";
 import AnnouncementBar from "@/components/AnnouncementBar";
-import Preloader from "@/components/Preloader";
 
 export default function RootLayout({
   children,
@@ -118,7 +117,6 @@ export default function RootLayout({
       <body
         className={`${cairo.variable} antialiased font-[family-name:var(--font-cairo)] flex flex-col min-h-screen`}
       >
-        <Preloader />
         <div className="sticky top-0 z-50 w-full shadow-lg">
           <AnnouncementBar />
           <Header />

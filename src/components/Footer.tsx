@@ -32,10 +32,10 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-black mb-6 border-b-2 border-[#D4AF37] pb-2 inline-block">روابط سريعة</h3>
             <ul className="space-y-4 text-sm text-gray-300">
-              <li><Link href="#" className="hover:text-primary transition-colors flex items-center gap-2"><span>←</span> الرئيسية</Link></li>
-              <li><Link href="#services" className="hover:text-primary transition-colors flex items-center gap-2"><span>←</span> خدماتنا</Link></li>
-              <li><Link href="#portfolio" className="hover:text-primary transition-colors flex items-center gap-2"><span>←</span> أعمالنا السابقة</Link></li>
-              <li><Link href="#contact" className="hover:text-primary transition-colors flex items-center gap-2"><span>←</span> اطلب عرض سعر</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors flex items-center gap-2"><span>←</span> الرئيسية</Link></li>
+              <li><Link href="/#services" className="hover:text-primary transition-colors flex items-center gap-2"><span>←</span> خدماتنا</Link></li>
+              <li><Link href="/#portfolio" className="hover:text-primary transition-colors flex items-center gap-2"><span>←</span> أعمالنا السابقة</Link></li>
+              <li><Link href="/#contact" className="hover:text-primary transition-colors flex items-center gap-2"><span>←</span> اطلب عرض سعر</Link></li>
             </ul>
           </div>
 

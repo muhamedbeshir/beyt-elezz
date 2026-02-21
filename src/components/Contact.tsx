@@ -5,7 +5,7 @@ import NumericText from './NumericText';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-12 bg-[#1f70cc] text-white relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 bg-[#1f70cc] text-white relative overflow-hidden">
       {/* Background Elements */}
       {/* Background Elements - Optimized */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/5 rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
