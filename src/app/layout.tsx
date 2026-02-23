@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 
@@ -117,6 +118,18 @@ export default function RootLayout({
       <body
         className={`${cairo.variable} antialiased font-[family-name:var(--font-cairo)] flex flex-col min-h-screen`}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17969577881"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17969577881');
+          `}
+        </Script>
         <div className="sticky top-0 z-50 w-full shadow-lg">
           <AnnouncementBar />
           <Header />
